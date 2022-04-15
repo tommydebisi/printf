@@ -1,3 +1,3 @@
-## START OF PRINTF PROJECT
+## START OF THE PRINTF PROJECT
 > Documentation loading ...
 ### Contributors: Adebisi Oluwatomiwa, Azolike Tochi
