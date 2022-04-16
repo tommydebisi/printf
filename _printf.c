@@ -9,13 +9,7 @@
 int _printf(const char *format, ...)
 {
 	/*declare variable and initialize struct to be used*/
-	chr_st _char[] = {
-		{"c", use_c},
-		{"s", use_s},
-		{NULL, NULL},
-	};
-
-	int i, j, sum = 0;
+	int i, sum = 0, count;
 	va_list arg;
 	/* initialize arg with format*/
 	va_start(arg, format);
@@ -25,20 +19,30 @@ int _printf(const char *format, ...)
 		{
 			_putchar(format[i]);
 			sum += 1;
+			continue;
 		}
 		if (format[i] == '%')
 		{
 			++i;
-			for (j = 0; j < 2; j++)/*loop through struct array*/
-			{
-				if (format[i] == *(_char[j].str) && format[i] != '%')
-					sum += _char[j].f(arg);/*gets length*/
+			if (format[i] == '%')
+			{/*means it's %% so it should print %*/
+				_putchar('%');
+				sum += 1;
+				continue;
 			}
+			if (format[i] == '\0')
+				return (-1);
+			count = count_spec(format[i], arg);/*the length*/
 		}
-		if (format[i] == '%')
+		if (count > 0)
+			sum += count;
+		if (count == 0 && format[++i] == '\0')
+			return (-1);
+		if (count == 0)/*no stat. was done do this*/
 		{
 			_putchar('%');
-			sum += 1;
+			_putchar(format[i]);
+			sum += 2;
 		}
 	}
 	va_end(arg);

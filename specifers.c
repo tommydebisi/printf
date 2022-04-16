@@ -24,11 +24,12 @@ int use_s(va_list arg)
 
 	s = va_arg(arg, char *);
 
-	if (s)
-	{
-		len = _strlen(s);/*get length of string arg*/
-		for (i = 0; i < len; i++)
-			_putchar(s[i]);
-	}
+	if (!s)/*if string is NULL*/
+		s = "(nil)";
+	else if (*s == '\0')/*checking for empty string*/
+		return (-1);
+	len = _strlen(s);/*get length of string arg*/
+	for (i = 0; i < len; i++)
+		_putchar(s[i]);
 	return (len);
 }
