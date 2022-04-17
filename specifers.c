@@ -79,11 +79,6 @@ int use_b(va_list arg)
 		_putchar ('0');
 		len++;
 	}
-	if (val == 1)
-	{
-		_putchar ('1');
-		len++;
-	}
 
 	for (i = 0; val > 0; i++)
 	{
