@@ -21,7 +21,7 @@ int count_spec(char chr, va_list arg)
 	/*going through struct array*/
 	for (j = 0; j < 4; j++)/*loop through struct array*/
 	{
-		if (chr == *(_char[j].str) && chr != '%')
+		if (chr == *(_char[j].str))
 			sum = _char[j].f(arg);/*gets length*/
 	}
 	return (sum);

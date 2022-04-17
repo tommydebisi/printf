@@ -2,13 +2,12 @@
 /**
  * use_c - when format is c
  * @arg: argument
- * Return: 1
+ * Return: 1 if there's character, -1 if not
  */
 
 int use_c(va_list arg)
 {
-	_putchar(va_arg(arg, int));
-	return (1);
+	return(_putchar(va_arg(arg, int)));
 }
 /**
  * use_s - when format is s
