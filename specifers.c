@@ -68,7 +68,7 @@ int use_i(va_list arg)
 
 int use_b(va_list arg)
 {
-	unsigned int divisor = 2, len = 0;
+	unsigned int divisor = 2, num, len = 0;
 	int val = va_arg(arg, int);
 	int k[10], i;
 
@@ -92,7 +92,8 @@ int use_b(va_list arg)
 	}
 	for (i = i - 1; i >= 0; i--, len++)
 	{
-		_putchar('0' + k[i]);
+		num = k[i];
+		_putchar('0' + num);
 	}
 	return (len);
 }
