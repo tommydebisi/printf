@@ -33,3 +33,30 @@ int use_s(va_list arg)
 		_putchar(s[i]);
 	return (len);
 }
+
+/**
+ * use_i - when format is d or i
+ * @arg: holds the value being displayed
+ * Return: the length of displayed vaule
+ */
+
+int use_i(va_list arg)
+{
+	unsigned int divisor = 1, num, l, len = 0;
+	int val = va_arg(arg, int);
+
+	if (val < 0)
+	{
+		_putchar('-');
+		val *= -1;
+		len++;
+	}
+	for (l = 0; val / divisor > 9; l++, divisor *= 10)
+		;
+	for (; divisor >= 1; val %= divisor, divisor /= 10, len++)
+	{
+		num = val / divisor;
+		_putchar('0' + num);
+	}
+	return (len);
+}

@@ -12,12 +12,14 @@ int count_spec(char chr, va_list arg)
 	chr_st _char[] = {
 		{"c", use_c},
 		{"s", use_s},
-		{NULL, NULL},
+		{"i", use_i},
+		{"d", use_i},
+		{NULL, NULL}
 	};
 	int j, sum = 0;
 
 	/*going through struct array*/
-	for (j = 0; j < 2; j++)/*loop through struct array*/
+	for (j = 0; j < 4; j++)/*loop through struct array*/
 	{
 		if (chr == *(_char[j].str) && chr != '%')
 			sum = _char[j].f(arg);/*gets length*/

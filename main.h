@@ -24,5 +24,6 @@ int _strlen(char *c);
 /*from specifer functions.c */
 int use_c(va_list arg);
 int use_s(va_list arg);
+int use_i(va_list arg);
 
 #endif
