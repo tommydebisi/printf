@@ -7,7 +7,7 @@
 
 int use_c(va_list arg)
 {
-	return(_putchar(va_arg(arg, int)));
+	return (_putchar(va_arg(arg, int)));
 }
 /**
  * use_s - when format is s
@@ -30,7 +30,7 @@ int use_s(va_list arg)
 	len = _strlen(s);/*get length of string arg*/
 	for (i = 0; i < len; i++)
 		_putchar(s[i]);
-	return (len);
+	return (i);
 }
 
 /**
