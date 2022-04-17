@@ -1,0 +1,26 @@
+_printf(3) - printf manual page
+
+NAME
+	_printf
+SYNOPSIS
+	#include "main.h"
+
+	int _printf(const char *format, ...);
+
+DESCRIPTION
+	The function _printf() displays output to the standard output stream 
+	according to a given format as outlined below.
+
+	The function basically writes using the write() function to output to the stdout.
+
+	The function is equivalent to printf() function as provided in the stdio.h library.
+	
+	
+Format of the format string
+	The format string is a character string, enclosed within a double quote with a percentage
+	symbol directly before the string.
+
+	The syntax for the format string is:
+	
+	"%[the format]"
+	

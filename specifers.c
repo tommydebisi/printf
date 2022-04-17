@@ -36,7 +36,7 @@ int use_s(va_list arg)
 /**
  * use_i - when format is d or i
  * @arg: holds the value being displayed
- * Return: the length of displayed vaule
+ * Return: the length of displayed value
  */
 
 int use_i(va_list arg)
@@ -55,6 +55,39 @@ int use_i(va_list arg)
 	for (; divisor >= 1; val %= divisor, divisor /= 10, len++)
 	{
 		num = val / divisor;
+		_putchar('0' + num);
+	}
+	return (len);
+}
+
+/**
+ * use_b - this converts an int to binary
+ * @arg: holds the value being displayed
+ * Return: the length of displayed value
+ */
+
+int use_b(va_list arg)
+{
+	unsigned int divisor = 2, num, len = 0;
+	int val = va_arg(arg, int);
+	int k[10], i;
+
+	if (val < 0)
+		return (-1);
+	if (val == 0)
+	{
+		_putchar ('0');
+		len++;
+	}
+
+	for (i = 0; val > 0; i++)
+	{
+		k[i] = val % divisor;
+		val = val / divisor;
+	}
+	for (i = i - 1; i >= 0; i--, len++)
+	{
+		num = k[i];
 		_putchar('0' + num);
 	}
 	return (len);
