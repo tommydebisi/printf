@@ -19,17 +19,17 @@ int use_s(va_list arg)
 {
 	/*declare a char pointer*/
 	char *s;
-	int i, len;
+	int i;
 
 	s = va_arg(arg, char *);
 
-	if (!s)/*if string is NULL*/
-		s = "(nil)";
+	if (s == NULL)/*if string is NULL*/
+		s = "(null)";
 	else if (*s == '\0')/*checking for empty string*/
 		return (-1);
-	len = _strlen(s);/*get length of string arg*/
-	for (i = 0; i < len; i++)
+	for (i = 0; s[i]; i++)
 		_putchar(s[i]);
+
 	return (i);
 }
 

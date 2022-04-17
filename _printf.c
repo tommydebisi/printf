@@ -9,7 +9,7 @@
 int _printf(const char *format, ...)
 {
 	/*declare variable and initialize struct to be used*/
-	int i, sum = 0, count;
+	int i, sum = 0, count = 0;
 	va_list arg;
 	/* initialize arg with format*/
 	va_start(arg, format);
@@ -20,19 +20,21 @@ int _printf(const char *format, ...)
 		if (format[i] != '%')
 		{/*it is a normal character so print*/
 			_putchar(format[i]);
-			sum += 1;
+			sum++;
 			continue;
 		}
 		if (format[i + 1] == '%')
 		{/*means it's %% so it should print %*/
 			_putchar('%');
-			sum += 1;
+			sum++;
+			i++;
 			continue;
 		}
 		while (format[i + 1] == ' ')
 			i++;
 		if (format[i + 1] == '\0')
 			return (-1);
+
 		count = count_spec(format[i + 1], arg);/*the count of arg*/
 		if (count == -1 || count != 0)
 			i++;
@@ -41,7 +43,7 @@ int _printf(const char *format, ...)
 		if (count == 0)/*invalid specifier, treat as normal character*/
 		{
 			_putchar('%');
-			sum += 1;
+			sum++;
 		}
 	}
 	va_end(arg);

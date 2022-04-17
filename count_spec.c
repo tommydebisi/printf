@@ -16,13 +16,13 @@ int count_spec(char chr, va_list arg)
 		{"d", use_i},
 		{NULL, NULL}
 	};
-	int j, sum = 0;
+	int j;
 
 	/*going through struct array*/
 	for (j = 0; j < 4; j++)/*loop through struct array*/
 	{
 		if (chr == *(_char[j].str))
-			sum = _char[j].f(arg);/*gets length*/
+			return (_char[j].f(arg));/*gets length*/
 	}
-	return (sum);
+	return (0);
 }
