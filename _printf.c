@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * _printf - prints and returns length of format and arg.
- * @format: string where specifiers are also called
- * Return: count sum
+ * _printf - produces output according to output
+ * @format: argument
+ * Return: res
  */
 
 int _printf(const char *format, ...)
@@ -23,15 +23,14 @@ int _printf(const char *format, ...)
 			sum += 1;
 			continue;
 		}
-		if (format[i] == '%')
-		{
-			if (format[i + 1] == '%')
-			{/*means it's %% so it should print %*/
-				_putchar('%');
-				sum += 1;
-				continue;
-			}
+		if (format[i + 1] == '%')
+		{/*means it's %% so it should print %*/
+			_putchar('%');
+			sum += 1;
+			continue;
 		}
+		while (format[i + 1] == ' ')
+			i++;
 		if (format[i + 1] == '\0')
 			return (-1);
 		count = count_spec(format[i + 1], arg);/*the count of arg*/
