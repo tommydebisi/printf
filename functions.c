@@ -26,7 +26,8 @@ int _strlen(char *c)
 int print_HEX(unsigned int num)
 {
 	/*declare variables to be used in loop and hold arg*/
-	long int i, j, k, val, remainder;
+	long int i, j, k, remainder;
+	unsigned int val;
 	char *ptr;
 
 	val = num;
