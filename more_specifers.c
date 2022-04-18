@@ -110,9 +110,9 @@ int use_S(va_list arg)
 	{
 		if ((s[i] > 0 && s[i] < 32) || (s[i] >= 127))
 		{
-			_putchar(92);
+			_putchar('\\');
 			_putchar('x');
-			if (s[i] < 16)
+			if (i < 16)
 				_putchar('0');
 			print_HEX(s[i]);
 		}
