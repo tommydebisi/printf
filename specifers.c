@@ -36,7 +36,7 @@ int use_s(va_list arg)
 /**
  * use_i - when format is d or i
  * @arg: holds the value being displayed
- * Return: the length of displayed value
+ * Return: the length of displayed vaule
  */
 
 int use_i(va_list arg)
@@ -59,36 +59,67 @@ int use_i(va_list arg)
 	}
 	return (len);
 }
-
 /**
- * use_b - this converts an int to binary
+ * use_u - when format is u
  * @arg: holds the value being displayed
- * Return: the length of displayed value
+ * Return: the length of the displayed value
  */
 
-int use_b(va_list arg)
+int use_u(va_list arg)
 {
-	unsigned int divisor = 2, num, len = 0;
-	int val = va_arg(arg, int);
-	int k[10], i;
+	/*declare variables to be used in loop and hold arg*/
+	unsigned int num, divisor = 1, len = 0, j, get;
 
-	if (val < 0)
-		return (-1);
-	if (val == 0)
+	num = va_arg(arg, unsigned int);
+	/*going through loop to get the divisor*/
+	for (j = 0; num / divisor > 9; divisor *= 10, j++)
+		;
+	/*getting each number using loop*/
+	for (; divisor >= 1; num %= divisor, divisor /= 10, len++)
 	{
-		_putchar ('0');
-		len++;
-	}
-
-	for (i = 0; val > 0; i++)
-	{
-		k[i] = val % divisor;
-		val = val / divisor;
-	}
-	for (i = i - 1; i >= 0; i--, len++)
-	{
-		num = k[i];
-		_putchar('0' + num);
+		/*get the number from front and print*/
+		get = num / divisor;
+		_putchar('0' + get);
 	}
 	return (len);
+}
+/**
+ * use_o - change from base 10 to base 8
+ * @arg: holds the value to be displayed
+ * Return: print and return length of char numbers
+ */
+int use_o(va_list arg)
+{
+	/*declare variables to be used in loop and hold arg*/
+	long int i, j, k, val, cou;
+	char *ptr;
+	unsigned int decimal = va_arg(arg, int);
+
+	val = decimal;
+
+	if (decimal == 0)
+		return (_putchar('0'));
+	/*getting length of output*/
+	i = 0;
+	while (val > 0)
+	{
+		val /= 8;/* start getting length after division*/
+		i++;
+	}
+	/*mallocing space to keep remainder*/
+	ptr = malloc(sizeof(char) * i);
+	if (ptr == NULL)
+		return (-1);
+	/*putting each character in malloced space*/
+	for (j = 0; j < i; j++)
+	{
+		cou = decimal % 8;
+		ptr[j] = cou + 48;
+		decimal /= 8;
+	}
+	/*printing malloc in reverse*/
+	for (k = j - 1; k >= 0; k--)/*minus 1 from j cause j = i*/
+		_putchar(ptr[k]);
+	free(ptr);
+	return (i);
 }

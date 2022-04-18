@@ -25,6 +25,13 @@ int _strlen(char *c);
 int use_c(va_list arg);
 int use_s(va_list arg);
 int use_i(va_list arg);
+int use_d(va_list arg);
+int use_u(va_list arg);
+int use_o(va_list arg);
+/*from binary.c */
 int use_b(va_list arg);
+/*from hexadecimal.c */
+int use_hex(va_list arg);
+int use_HEX(va_list arg);
 
 #endif
