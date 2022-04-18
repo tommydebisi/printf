@@ -20,7 +20,48 @@ Format of the format string
 	The format string is a character string, enclosed within a double quote with a percentage
 	symbol directly before the string.
 
-	The syntax for the format string is:
+	The format string comprises of 0 or more instructions: characters that are copied in their
+	 original state to the output stream and conversion specifiers, and they each result to 
+	processing zero or more subsequent argument. Each of these conversion specification is 
+	introduced by the character %, and ends with a conversion specifier.
+
+	The syntax of a coversion specification is this:
+
+	%conversion
+
+	The right coversion specifier corresponding to the right amount of argument must be used
+	to obtain the right output.
+	To print an integer variable named num:
+
+	_printf("%d", num);
+
+Conversion specifiers
+	This is a character the specifies what tye of conversion should be applied.
+
+	d, i	Converts an int argument to a signed decimal.
+
+	o	Converts an unsigned int argument to an unsigned octal.
 	
-	"%[the format]"
+	u	Converts an unsigned int argument to an unsigned decimal.
+
+	x, X	(x) converts an unsigned int argument to an unsigned Hexadecimal with the letters
+		(abcdef). (X) converts an unsigned int argument to an unsigned Hexadecimal with 
+		the letters (ABCDEF)
+
+	b	Converts an unsigned int to unsigned binary.
+
+RETURN VALUE
+
+	Upon success, the number of characters printed (excluding the null byte used to end 
+	output of a string)
+
+	If an output error is encoutered, a negative value is returned.
+
+BUGS
+
+	No known bugs at the time of this documentation.
+
+EXAMPLES
+
+	 
 	
