@@ -20,6 +20,7 @@ int count_spec(char ch, va_list arg);
 int _putchar(char c);
 int _printf(const char *format, ...);
 int _strlen(char *c);
+int print_HEX(unsigned int num);
 
 /*from specifer functions.c */
 int use_c(va_list arg);
@@ -30,9 +31,8 @@ int use_u(va_list arg);
 int use_o(va_list arg);
 /*from binary.c */
 int use_b(va_list arg);
-/*from more_specifier.c */
+/*from more_functions.c */
 int use_hex(va_list arg);
 int use_HEX(va_list arg);
 int use_S(va_list arg);
-
 #endif
