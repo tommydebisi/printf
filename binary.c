@@ -8,27 +8,36 @@
 
 int use_b(va_list arg)
 {
-	unsigned int divisor = 2, num, len = 0;
+	/*declare local variables*/
+	int divisor = 2, len = 0, i, j, k, newval;
+	int *ptr;
 	int val = va_arg(arg, int);
-	int k[10], i;
 
-	if (val < 0)
-		return (-1);
 	if (val == 0)
 	{
 		_putchar ('0');
 		len++;
+		return (len);
 	}
-
-	for (i = 0; val > 0; i++)
+	if (val < 0)
+		return (-1);
+	newval = val;
+	i = 0;
+	while (newval > 0)
 	{
-		k[i] = val % divisor;
-		val = val / divisor;
+		newval /= divisor;
+		i++;
 	}
-	for (i = i - 1; i >= 0; i--, len++)
+	ptr = malloc(sizeof(int) * i);
+	if (ptr == NULL)
+		return (-1);
+	for (j = 0; j < i; j++)
 	{
-		num = k[i];
-		_putchar('0' + num);
+		ptr[j] = val % divisor;
+		val /= divisor;
 	}
-	return (len);
+	for (k = j - 1; k >= 0; k--)
+		_putchar(ptr[k] + '0');
+	free(ptr);
+	return (i);
 }
