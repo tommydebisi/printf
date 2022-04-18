@@ -87,3 +87,38 @@ int use_HEX(va_list arg)
 	free(ptr);
 	return (i);
 }
+
+/**
+ * use_S - print the string with hex values
+ * @arg - holds the value to be displayed
+ * Return - length of char numbers
+ */
+
+int use_S(va_list arg)
+{
+	/*declare a char pointer*/
+	char *s;
+	int i;
+
+	s = va_arg(arg, char *);
+
+	if (s == NULL)/*if string is NULL*/
+		s = "(null)";
+	else if (*s == '\0')/*checking for empty string*/
+		return (-1);
+	for (i = 0; s[i]; i++)
+	{
+		if ((s[i] > 0 && s[i] < 32) || (s[i] >= 127))
+		{/*key in requirements*/
+			_putchar(92);
+			_putchar('x');
+			if(s[i] < 16)
+				_putchar('0');
+			_printf("%X", s[i]);
+		}
+		else
+			_putchar(s[i]);
+	}
+	return (i);
+
+}

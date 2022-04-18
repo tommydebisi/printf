@@ -30,8 +30,9 @@ int use_u(va_list arg);
 int use_o(va_list arg);
 /*from binary.c */
 int use_b(va_list arg);
-/*from hexadecimal.c */
+/*from more_specifier.c */
 int use_hex(va_list arg);
 int use_HEX(va_list arg);
+int use_S(va_list arg);
 
 #endif
