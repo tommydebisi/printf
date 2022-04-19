@@ -1,3 +1,5 @@
+DATE: 19-04-2022
+
 _printf(3) - printf manual page
 
 NAME
@@ -85,5 +87,10 @@ int main(void)
 
 	/*return 0 on success*/
 	return (0);
-}	
+}
+
+AUTHORS:
+
+	TOCHI AZOLIKE 
+	OLUWATOMINWA ADEBISI
 	
