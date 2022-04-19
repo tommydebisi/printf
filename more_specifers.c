@@ -126,3 +126,49 @@ int use_S(va_list arg)
 	return (count);
 
 }
+
+/**
+ * use_p - prints memory adress held in a pointer
+ * @arg: the pointer
+ * Return: length of the memory address
+ */
+
+int use_p(va_list arg)
+{
+	int i = 0, j, k, sum, size, remainder, sig_zero = 0;
+	char *ptr;
+	void *pt = va_arg(arg, void *);
+	uintptr_t new = (uintptr_t)pt; /*typecasting*/
+
+	size = sizeof(uintptr_t) * 2; /*max size of pointer address*/
+	/*start with leading 0x*/
+	_putchar('0');
+	_putchar('x');
+	i += 2; /*adding both char above length*/
+	/*mallocing space to keep remainder*/
+	ptr = malloc(size);
+	if (ptr == NULL)
+		return (-1);
+	/*putting each character in malloced space*/
+	for (j = 0; j < size; j++)
+	{
+		remainder = new % 16;
+		if (remainder < 10)
+			ptr[j] = remainder + 48;
+		else
+			ptr[j] = remainder - 10 + 'a';
+		new /= 16;
+	}
+	/*printing malloc in reverse*/
+	for (k = j - 1; k >= 0; k--)/*minus 1 from j cause j = size*/
+	{
+		if (ptr[k] != '0' || sig_zero)/*remove excess 0's from front*/
+		{
+			_putchar(ptr[k]);
+			sig_zero = ptr[k] != '0' ? 1 : sig_zero;
+		}
+	}
+	free(ptr);
+	sum = i + size;
+	return (sum);
+}
