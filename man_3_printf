@@ -61,7 +61,29 @@ BUGS
 
 	No known bugs at the time of this documentation.
 
-EXAMPLES
+EXAMPLE
 
-	 
+#include "main.h"
+
+/**
+ * main - Entry point
+ *
+ *Return: Always 0
+ */
+
+int main(void)
+{
+	/*declare an integer length to hold the return value of _printf*/
+	int len;
+
+	/*Assign a value to the variable length*/
+	len = _printf("This is a string.\n");
+	/*display the decimal value of len to the stdout*/
+	 _printf("Length:[%d, %i]\n", len, len);
+	/*print out a char*/
+	_printf("Char: [%c]\n", 'B');
+
+	/*return 0 on success*/
+	return (0);
+}	
 	
