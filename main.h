@@ -4,6 +4,8 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdint.h>
+
 /**
  * struct ch - struct ch
  * @str: pointer to string
@@ -35,4 +37,5 @@ int use_b(va_list arg);
 int use_hex(va_list arg);
 int use_HEX(va_list arg);
 int use_S(va_list arg);
+int use_p(va_list arg);
 #endif
