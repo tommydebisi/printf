@@ -135,7 +135,7 @@ int use_S(va_list arg)
 
 int use_p(va_list arg)
 {
-	int i = 0, j, k, sum, size, remainder, sig_zero = 0;
+	int i = 0, j, k, size, remainder, sig_zero = 0;
 	char *ptr;
 	void *pt = va_arg(arg, void *);
 	uintptr_t new = (uintptr_t)pt; /*typecasting*/
@@ -165,10 +165,13 @@ int use_p(va_list arg)
 		if (ptr[k] != '0' || sig_zero)/*remove excess 0's from front*/
 		{
 			_putchar(ptr[k]);
-			sig_zero = ptr[k] != '0' ? 1 : sig_zero;
+			i++;
+			if (ptr[k] != '0')
+				sig_zero = 1;
+			else
+				sig_zero = sig_zero;
 		}
 	}
 	free(ptr);
-	sum = i + size;
-	return (sum);
+	return (i);
 }
