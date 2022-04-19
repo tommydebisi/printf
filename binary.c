@@ -11,7 +11,7 @@ int use_b(va_list arg)
 	/*declare local variables*/
 	long int divisor = 2, len = 0, i, j, k, newval;
 	int *ptr;
-	int val = va_arg(arg, int);
+	unsigned int val = va_arg(arg, int);
 
 	if (val == 0)
 	{
@@ -19,8 +19,6 @@ int use_b(va_list arg)
 		len++;
 		return (len);
 	}
-	if (val < 0)
-		return (-1);
 	newval = val;
 	i = 0;
 	while (newval > 0)
