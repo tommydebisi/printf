@@ -98,7 +98,7 @@ int use_S(va_list arg)
 {
 	/*declare a char pointer*/
 	char *s;
-	int i;
+	int i, j = 0, count;
 
 	s = va_arg(arg, char *);
 
@@ -110,15 +110,19 @@ int use_S(va_list arg)
 	{
 		if ((s[i] > 0 && s[i] < 32) || (s[i] >= 127))
 		{
-			_putchar('\\');
+			_putchar(92);
 			_putchar('x');
-			if (i < 16)
+			j += 2;
+			if (s[i] < 16)
 				_putchar('0');
+
 			print_HEX(s[i]);
+			j += 1;
 		}
 		else
 			_putchar(s[i]);
 	}
-	return (i);
+	count = i + j;
+	return (count);
 
 }
