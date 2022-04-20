@@ -83,7 +83,7 @@ int use_p(va_list arg)
 	if (pt == NULL)
 	{
 		_puts("(nil)");
-		return (-1);
+		return (5);
 	}
 	size = sizeof(uintptr_t) * 2;/*max size of pointer address*/
 	/*start with leading 0x*/
