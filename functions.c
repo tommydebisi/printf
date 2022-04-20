@@ -62,3 +62,19 @@ int print_hexa(unsigned int num, int form)
 	free(ptr);
 	return (i);
 }
+
+/**
+ * _puts - prints string to the stdout
+ * @str: the string to be displayed
+ * Return: returns nothing
+ */
+
+void _puts(char *str)
+{
+	int len;
+
+	for (len = 0; str[len] != '\0'; len++)
+	{
+		_putchar(str[len]);
+	}
+}
