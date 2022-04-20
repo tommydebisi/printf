@@ -5,7 +5,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdint.h>
-
 /**
  * struct ch - struct ch
  * @str: pointer to string
@@ -22,7 +21,7 @@ int count_spec(char ch, va_list arg);
 int _putchar(char c);
 int _printf(const char *format, ...);
 int _strlen(char *c);
-int print_HEX(unsigned int num);
+int print_hexa(unsigned int num, int form);
 
 /*from specifer functions.c */
 int use_c(va_list arg);

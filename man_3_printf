@@ -1,71 +1,81 @@
-DATE: 19-04-2022
+.\" Manpage for _printf
+.TH man 8 "19 April, 2022" "1.0" "_printf man page"
 
-_printf(3) - printf manual page
-
-NAME
+.SH NAME
 	_printf
-SYNOPSIS
-	#include "main.h"
+.SH SYNOPSIS
+.B #include "main.h"
 
-	int _printf(const char *format, ...);
+.B int _printf(const char *format, ...);
 
-DESCRIPTION
-	The function _printf() displays output to the standard output stream 
-	according to a given format as outlined below.
+.SH DESCRIPTION
+The function
+.B _printf()
+ displays output to the standard output stream according to a given format as outlined below.
 
-	The function basically writes using the write() function to output to the stdout.
+The function basically writes using the write() function to output to the stdout.
 
-	The function is equivalent to printf() function as provided in the stdio.h library.
+The function is equivalent to printf() function as provided in the stdio.h library.
 	
 	
-Format of the format string
-	The format string is a character string, enclosed within a double quote with a percentage
-	symbol directly before the string.
+.SH Format of the format string
+The format string is a character string, enclosed within a double quote with a percentage
+symbol directly before the string.
 
-	The format string comprises of 0 or more instructions: characters that are copied in their
-	 original state to the output stream and conversion specifiers, and they each result to 
-	processing zero or more subsequent argument. Each of these conversion specification is 
-	introduced by the character %, and ends with a conversion specifier.
+The format string comprises of 0 or more instructions: characters that are copied in their
+ original state to the output stream and conversion specifiers, and they each result to 
+processing zero or more subsequent argument. Each of these conversion specification is 
+introduced by the character %, and ends with a conversion specifier.
 
-	The syntax of a coversion specification is this:
+The syntax of a coversion specification is this:
 
-	%conversion
+.B %conversion
 
-	The right coversion specifier corresponding to the right amount of argument must be used
-	to obtain the right output.
-	To print an integer variable named num:
+The right coversion specifier corresponding to the right amount of argument must be used
+to obtain the right output.
+To print an integer variable named num:
 
-	_printf("%d", num);
+.B _printf("%d", num);
 
-Conversion specifiers
-	This is a character the specifies what tye of conversion should be applied.
+.SH Conversion specifiers
+This is a character the specifies what tye of conversion
+ should be applied.
 
-	d, i	Converts an int argument to a signed decimal.
+.B d,
+.B i
+Converts an int argument to a signed decimal.
 
-	o	Converts an unsigned int argument to an unsigned octal.
-	
-	u	Converts an unsigned int argument to an unsigned decimal.
+.B o
+Converts an unsigned int argument to an unsigned octal.	
 
-	x, X	(x) converts an unsigned int argument to an unsigned Hexadecimal with the letters
-		(abcdef). (X) converts an unsigned int argument to an unsigned Hexadecimal with 
-		the letters (ABCDEF)
+.B u
+Converts an unsigned int argument to an unsigned decimal.
 
-	b	Converts an unsigned int to unsigned binary.
+.B x, 
+.B X	
+.B (x) 
+converts an unsigned int argument to an unsigned Hexadecimal with the letters
+.B(abcdef).
+.B (X) converts an unsigned int argument to an unsigned Hexadecimal with 
+the letters 
+.B (ABCDEF)
 
-RETURN VALUE
+.B b	
+Converts an unsigned int to unsigned binary.
 
-	Upon success, the number of characters printed (excluding the null byte used to end 
-	output of a string)
+.SH RETURN VALUE
 
-	If an output error is encoutered, a negative value is returned.
+Upon success, the number of characters printed (excluding the null byte used to end 
+output of a string)
 
-BUGS
+If an output error is encoutered, a negative value is returned.
 
-	No known bugs at the time of this documentation.
+.SH BUGS
 
-EXAMPLE
+No known bugs at the time of this documentation.
 
-#include "main.h"
+.SH EXAMPLES
+.B #include "main.h"
 
 /**
  * main - Entry point
@@ -73,24 +83,38 @@ EXAMPLE
  *Return: Always 0
  */
 
-int main(void)
+.B int main(void)
 {
-	/*declare an integer length to hold the return value of _printf*/
+
+/*declare an integer length to hold the return value of _printf*/
+.br
 	int len;
+.br
 
-	/*Assign a value to the variable length*/
+/*Assign a value to the variable length*/
+.br
 	len = _printf("This is a string.\n");
-	/*display the decimal value of len to the stdout*/
-	 _printf("Length:[%d, %i]\n", len, len);
-	/*print out a char*/
-	_printf("Char: [%c]\n", 'B');
+.br
 
-	/*return 0 on success*/
+/*display the decimal value of len to the stdout*/
+.br
+	 _printf("Length:[%d, %i]\n", len, len);
+.br
+
+/*print out a char*/
+.br
+	_printf("Char: [%c]\n", 'B');
+.br
+
+/*return 0 on success*/
+.br
 	return (0);
+.br
 }
 
-AUTHORS:
+.SH AUTHORS:
 
-	TOCHI AZOLIKE 
-	OLUWATOMINWA ADEBISI
-	
+.B TOCHI AZOLIKE 
+
+.B OLUWATOMINWA ADEBISI
+

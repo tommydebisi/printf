@@ -18,12 +18,13 @@ int _strlen(char *c)
 }
 
 /**
- * print_HEX - converts from base 10 to 16
+ * print_hexa - converts from base 10 to 16
  * @num: unsigned int
+ * @form: lowercase or uppercase
  * Return: num of characters
  */
 
-int print_HEX(unsigned int num)
+int print_hexa(unsigned int num, int form)
 {
 	/*declare variables to be used in loop and hold arg*/
 	long int i, j, k, remainder;
@@ -52,7 +53,7 @@ int print_HEX(unsigned int num)
 		if (remainder < 10)
 			ptr[j] = remainder + 48;
 		else
-			ptr[j] = remainder + 55;
+			ptr[j] = remainder - 10 + form;
 		num /= 16;
 	}
 	/*printing malloc in reverse*/
