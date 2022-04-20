@@ -20,8 +20,10 @@ int count_spec(char ch, va_list arg);
 
 int _putchar(char c);
 int _printf(const char *format, ...);
+/*These fuctions can be found in functions.c*/
 int _strlen(char *c);
 int print_hexa(unsigned int num, int form);
+void _puts(char *str);
 
 /*from specifer functions.c */
 int use_c(va_list arg);
