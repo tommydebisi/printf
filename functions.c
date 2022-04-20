@@ -72,9 +72,43 @@ int print_hexa(unsigned int num, int form)
 void _puts(char *str)
 {
 	int len;
-
+	/*loop through string and print each characters*/
 	for (len = 0; str[len] != '\0'; len++)
-	{
 		_putchar(str[len]);
+}
+
+/**
+ * rot13 - encodes a string using rot13
+ * @s: input string.
+ * Return: the pointer to dest.
+ */
+
+char *rot13(char *s)
+{
+	/*declare variables to be used in loops and also to hold characters*/
+	int count, i, len = _strlen(s);
+	char *alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char *rot13 = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+	/*malloc space to keep changed characters*/
+	char *ptr = malloc(sizeof(char) * (len + 1));
+
+	if (ptr == NULL)
+		return (0);
+	for (count = 0; *(s + count) != '\0'; count++)
+	{
+		for (i = 0; i < 52; i++)
+		{
+			if (*(s + count) == alphabet[i])
+			{
+				*(ptr + count) = rot13[i];
+				/*sets encrypted character to malloc space*/
+				break;
+			}
+			*(ptr + count) = *(s + count);
+			/*still adds character if the above stat.  is not true*/
+		}
 	}
+	*(ptr + count) = '\0';
+
+	return (ptr);
 }

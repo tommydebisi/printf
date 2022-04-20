@@ -24,6 +24,7 @@ int _printf(const char *format, ...);
 int _strlen(char *c);
 int print_hexa(unsigned int num, int form);
 void _puts(char *str);
+char *rot13(char *s);
 
 /*from specifer functions.c */
 int use_c(va_list arg);
@@ -39,4 +40,9 @@ int use_hex(va_list arg);
 int use_HEX(va_list arg);
 int use_S(va_list arg);
 int use_p(va_list arg);
+int use_r(va_list arg);
+
+/*From rot_13.c*/
+int use_R(va_list arg);
+
 #endif
