@@ -80,24 +80,27 @@ int use_p(va_list arg)
 	void *pt = va_arg(arg, void *);
 	uintptr_t new = (uintptr_t)pt; /*typecasting*/
 
+	if (pt == NULL)
+	{
+		_puts("(nil)");
+		return (-1);
+	}
 	size = sizeof(uintptr_t) * 2;/*max size of pointer address*/
 	/*start with leading 0x*/
-	_putchar('0');
-	_putchar('x');
+	_puts("0x");
 	i += 2;/*adding both char above length*/
 	/*mallocing space to keep remainder*/
 	ptr = malloc(size);
 	if (ptr == NULL)
 		return (-1);
 	/*putting each character in malloced space*/
-	for (j = 0; j < size; j++)
+	for (j = 0; j < size; new /= 16, j++)
 	{
 		remainder = new % 16;
 		if (remainder < 10)
 			ptr[j] = remainder + 48;
 		else
 			ptr[j] = remainder - 10 + 'a';
-		new /= 16;
 	}
 	/*printing malloc in reverse*/
 	for (k = j - 1; k >= 0; k--)/*minus 1 from j cause j = size*/
