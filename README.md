@@ -5,7 +5,7 @@ This recreates the printf function in the standard input and output library.
 _printf displays characters to the standard output and returns the length of the characters, we're not to handle flag
 characters, field width, precision or length.
 
-We used our knowledge from previous tasks to ==replicate the printf function==,
+We used our knowledge from previous tasks to ***replicate the printf function***
 we reproduced the format specifiers which are defined below:
 
 | **Format Specifiers** | **Description** |
@@ -18,8 +18,8 @@ we reproduced the format specifiers which are defined below:
 | b | This gets only positive arguments, changes it from base 10 to base 2 and prints it out |
 | u | This prints out only positive integer values gotten from the argument |
 | o | This gets only positive arguments, changes it from base 10 to base 8 and prints it out |
-| x | This gets only positive arguments, changes it from base 10 to base 16 ==(alphabets are in lowercase)== and prints it out |
-| X | This gets only positive arguments, changes it from base 10 to base 16 ==(alphabets are in uppercase)== and prints it out |
+| x | This gets only positive arguments, changes it from base 10 to base 16 ***(alphabets are in lowercase)*** and prints it out |
+| X | This gets only positive arguments, changes it from base 10 to base 16 ***(alphabets are in uppercase)*** and prints it out |
 | S | This prints out the string gotten from the argument and changes particular characters to base 16 |
 | p | This prints out the pointer address gotten from the argument |
 
@@ -27,13 +27,16 @@ we reproduced the format specifiers which are defined below:
 we precede the above specifiers with a ==%== character before it can be used to get arguments
 
 **FUNCTIONS USED**
-- ==write (man 2 write)==
-- ==malloc (man 3 malloc)==
-- ==free (man 3 free)==
-- ==va_start (man 3 va_start)==
-- ==va_end (man 3 va_end)==
-- ==va_arg (man 3 va_arg)==
+- ***write (man 2 write)***
+- ***malloc (man 3 malloc)***
+- ***free (man 3 free)***
+- ***va_start (man 3 va_start)***
+- ***va_end (man 3 va_end)***
+- ***va_arg (man 3 va_arg)***
 
+**COMPILATION**
+Use this format below to compile the .c files above <br>
+`gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c`
 
 **Example:**
 `_printf("%c", 'A');`
