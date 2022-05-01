@@ -1,9 +1,7 @@
 ## START OF THE PRINTF PROJECT
 ### _PRINTF PROJECT FOR ALX
 
-<p align = "center">
   [![alx logo](alx.png)](https://www.alxafrica.com/)
-</p>
 
 This recreates the printf function in the standard input and output library.
 _printf displays characters to the standard output and returns the length of the characters, we're not to handle flag
